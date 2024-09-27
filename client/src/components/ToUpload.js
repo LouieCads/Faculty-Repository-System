@@ -29,7 +29,7 @@ function ToUpload() {
   };
 
   return (
-    <div>
+    <div className="mainCntr">
       <div className="plusSignCtnr">
         <input
           id="file"

@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./ViewAll.css";
+
 
 function View() {
   const [listOfTheses, setListOfTheses] = useState([]);
@@ -38,25 +40,29 @@ function View() {
   }, []);
 
   return (
-    <div>
+    <div className="thesisMainC">
       <h1>Thesis List</h1>
       {error && <div className="error">{error}</div>}
       {listOfTheses.length === 0 && !error && <div>Loading theses...</div>}
-      {listOfTheses.map((value, key) => {
-        return ( 
-          <div className='product' key={key}> 
-            <div className='name'>
-              <a href={`http://localhost:3308/Theses/download/${value.filename}`} 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 download={value.filename}>
-                {value.filename}
-              </a>
+      <div className="thesisGrid">
+        {listOfTheses.map((value, key) => {
+          return (
+            <div className="thesis" key={key}>
+              <div className="name">
+                <a
+                  href={`http://localhost:3308/Theses/download/${value.filename}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download={value.filename}
+                >
+                  {value.filename}
+                </a>
+              </div>
+              <div>{value.title}</div>
             </div>
-            <div>{value.title}</div>
-          </div>
-        );
-      })} 
+          );
+        })}
+      </div>
     </div>
   );
 }

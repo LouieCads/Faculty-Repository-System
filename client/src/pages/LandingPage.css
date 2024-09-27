@@ -4,18 +4,18 @@
 .LPcontainer {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full height of the viewport */
-  background-size: cover; /* Cover the entire container */
-  background-position: center; /* Center the image */
-  display: flex; /* Align items in the center */
-  flex-direction: column; /* Stack content vertically */
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  color: white; /* Text color */
+  height: 100vh; 
+  background-size: cover; 
+  background-position: center; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  color: white; 
 }
 
 h1 {
-  z-index: 1; /* Ensure text appears above the background */
+  z-index: 1; 
 }
 .LPcontainer p{
   font-size: 3em;
@@ -34,12 +34,15 @@ h1 {
   height: 3em;
   width: 10em;
   letter-spacing: 4px;
+  color: white;
+  transition: 0.7s ease
 }
 .LPcontainer .LPBtnCtnr button:hover{
   background-color: rgb(255, 255, 255);
-    border: none;
-    font-weight: 800;
-    color: #01245B;
+  border: none;
+  font-weight: 800;
+  color: #01245B;
+  border-radius: 3em;
 }
 
 
