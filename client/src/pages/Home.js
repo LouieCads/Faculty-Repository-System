@@ -11,9 +11,9 @@ function Home() {
       <Header />
       <div className="mainContainer">
         <div className="textContainer">
-          <h1>Spotter:</h1>
+          <h1>ThesHub:</h1>
           <p>
-            Welcome to Spotter, the smart way to check research originality!
+            Welcome to ThesHub, the smart way to check research originality!
             Upload student's thesis, and let Spotter scan for similar thesis titles
             in seconds.
           </p>

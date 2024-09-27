@@ -2,23 +2,24 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  bottom: 5%;
-  right: 4%;
+  bottom: 4%;
+  right: 2%;
   background-color: #01245B;
   padding: 10px;
   border-radius: 50%; 
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 25%;
   margin: 0;
+  transition: all 0.3s ease;
 }
 
 .plusSign {
   width: 2.3em;
   height: auto;
-  cursor: pointer;
 }
 
 .plusSignCtnr:hover {
   opacity: 100%;
+  cursor: pointer;
   background-color: #003ba9; 
 }

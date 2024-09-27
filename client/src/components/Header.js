@@ -46,7 +46,8 @@ const header = () => {
             <p className="text2">Repository System</p>
           </Typography>
           <div className="btnMain">
-            <Button color="inherit">Home</Button>
+            <Button color="inherit">Summarize</Button>
+            <Button color="inherit">Compare</Button>
             <Button color="inherit">Login</Button>
           </div>
         </Toolbar>

@@ -1,54 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import axios from 'axios';
+import debounce from 'lodash/debounce';
 
 const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchSuggestions = async () => {
-      if (query.length > 2) {
-        try {
-          const response = await axios.get(`http://localhost:3308/api/suggestions?q=${query}`);
-          setSuggestions(response.data);
-        } catch (error) {
-          console.error('Error fetching suggestions:', error);
-        }
-      } else {
-        setSuggestions([]);
+  const debouncedSearch = useCallback(
+    debounce(async (query) => {
+      try {
+        const response = await axios.get(`http://localhost:3308/Theses/pdfs?q=${query}`);
+        console.log('Thesis response data:', response.data);
+        onSearch(response.data);
+      } catch (error) {
+        console.error('Error fetching theses:', error);
+        setError('Failed to load theses.');
       }
-    };
+    }, 300),
+    [onSearch]
+  );
 
-    const debounce = setTimeout(() => {
-      fetchSuggestions();
-    }, 300);
-
-    return () => clearTimeout(debounce);
-  }, [query]);
-
-  const handleSearch = (searchQuery) => {
-    setQuery(searchQuery);
-    onSearch(searchQuery);
-    setSuggestions([]);
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    debouncedSearch(query);
   };
 
   return (
     <div className="sbarContainer">
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Find Something"
+      <input 
+        type="text" 
+        placeholder="Search by filename or title" 
+        value={searchQuery} 
+        onChange={handleSearchChange} 
       />
-      {suggestions.length > 0 && (
-        <ul className="suggestions">
-          {suggestions.map((suggestion, index) => (
-            <li key={index} onClick={() => handleSearch(suggestion)}>
-              {suggestion}
-            </li>
-          ))}
-        </ul>
-      )}
+      {error && <p className="error">{error}</p>}
     </div>
   );
 };
