@@ -1,0 +1,46 @@
+*{
+    font-family: "Montserrat", sans-serif;;
+}
+.LPcontainer {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  display: flex; /* Align items in the center */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  color: white; /* Text color */
+}
+
+h1 {
+  z-index: 1; /* Ensure text appears above the background */
+}
+.LPcontainer p{
+  font-size: 3em;
+  margin-bottom: -0.5em;
+  font-weight: 500;
+  text-align: center;
+}
+.LPcontainer h1{
+  font-size: 7.5em;
+  font-weight: 800;
+}
+.LPcontainer .LPBtnCtnr button{
+  margin-top: 8em;
+  border: 2px solid white;
+  font-size: 20px;
+  height: 3em;
+  width: 10em;
+  letter-spacing: 4px;
+}
+.LPcontainer .LPBtnCtnr button:hover{
+  background-color: rgb(255, 255, 255);
+    border: none;
+    font-weight: 800;
+    color: #01245B;
+}
+
+
+

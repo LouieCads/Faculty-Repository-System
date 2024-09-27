@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;;
+}
+.navBar{
+    display: flex;
+    justify-content: center; /*center: vertical*/
+    height: 6em;
+    width: auto;
+}
+.btnMain{
+  
+  /* padding-right: 15px; */
+}
+.btnMain button{
+  margin: 0 25px;
+  font-family: "Montserrat", sans-serif;;
+}
+.btnMain button:hover{
+  color: rgb(184, 184, 184);
+  transition: ease-in 0.2s;
+}
+.navBar .umakLogo{
+    width: 70px;
+    height: auto;
+}
+.webtitleContainer
+{
+    display: flex;
+}
+.webtitleContainer .text2
+{
+    font-weight: 800;
+    color: #FFD659;
+}

@@ -1,3 +1,52 @@
-.App {
-  text-align: center;
+*{
+    font-family: "Montserrat", sans-serif;
 }
+.mainContainer .textContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  margin: 7em 10em;
+}
+.textContainer h1{
+  font-size: 5.5em;
+  font-weight: 600;
+  font-style: italic;
+  color: #444444;
+}
+.textContainer p{
+  font-size: 22px;
+  color: #545454;
+  line-height: 1.4em;
+  text-align: justify;
+}
+.sbarContainer{
+  display: flex;
+  justify-content: center;
+}
+.sbarContainer input{
+  width: 65%;
+  height: 4em;
+  background-color: #D9D9D9;
+  padding: 0 2em;
+  border-radius: 6em;
+  border-style: none;
+  box-shadow: 0 3px 8px rgba(92, 92, 92, 0.5);
+}
+.sbarContainer .searchList{
+  display: flex;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
