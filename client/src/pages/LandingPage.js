@@ -1,8 +1,8 @@
 import React from "react";
-import "./LandingPage.css"; // Import the CSS file
-import backgroundImage from "../images/umakBG.png"; // Correct the import path
-import Button from '@mui/material/Button'; // Import the Button component from Material-UI
-
+import "./LandingPage.css";
+import backgroundImage from "../images/umakBG.png";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -15,7 +15,9 @@ const LandingPage = () => {
         <h1>Great Brave Herons</h1>
       </div>
       <div className="LPBtnCtnr">
-        <Button color="inherit">START</Button>
+        <Link to="/home">
+          <Button color="inherit">START</Button>
+        </Link>
       </div>
     </div>
   );
