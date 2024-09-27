@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import ToUpload from "../components/ToUpload";
+import ViewAll from "../components/ViewAll";
 import "./Home.css";
 
 function Home() {
@@ -13,13 +14,13 @@ function Home() {
           <h1>Spotter:</h1>
           <p>
             Welcome to Spotter, the smart way to check research originality!
-            Upload student files, and let Spotter scan for similar thesis titles
-            in seconds. Fast, reliable, and designed to keep your submissions
-            unique. Safeguard academic integrity with ease!
+            Upload student's thesis, and let Spotter scan for similar thesis titles
+            in seconds.
           </p>
         </div>
         <SearchBar />
         <ToUpload />
+        <ViewAll />
       </div>
     </div>
   );

@@ -21,17 +21,15 @@ const header = () => {
         sx={{ backgroundColor: "#01245B", padding: "12px" }}
       >
         {" "}
-        {/*appbar = the whole navbar */}
         <Toolbar>
-          <img className="umakLogo" src={umakLogo} />
+          <a href="./"><img className="umakLogo" src={umakLogo} /></a>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }} //space niya from the burger button
+            sx={{ mr: 2 }} 
           >
-            {/* <MenuIcon /> */}
           </IconButton>
           <Typography
             className="webtitleContainer"

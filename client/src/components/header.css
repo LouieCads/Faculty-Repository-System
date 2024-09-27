@@ -5,12 +5,11 @@
 }
 .navBar{
     display: flex;
-    justify-content: center; /*center: vertical*/
+    justify-content: center; 
     height: 6em;
     width: auto;
 }
 .btnMain{
-  
   /* padding-right: 15px; */
 }
 .btnMain button{
