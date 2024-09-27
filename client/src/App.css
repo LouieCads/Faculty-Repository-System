@@ -1,6 +1,9 @@
 *{
     font-family: "Montserrat", sans-serif;
 }
+a {
+  text-decoration: none;
+}
 .mainContainer .textContainer{
   display: flex;
   justify-content: center;

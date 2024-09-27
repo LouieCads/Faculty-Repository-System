@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     pdfData: {
       type: DataTypes.BLOB("long"),
-      allowNull: false
+      allowNull: false 
     }
   }); 
 

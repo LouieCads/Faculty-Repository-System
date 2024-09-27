@@ -40,14 +40,19 @@ router.post('/', upload.single('file'), async (req, res) => {
 
 // getting all pdfs
 router.get('/pdfs', async (req, res) => {
+  const searchQuery = req.query.q || '';  // Get the search query from the request
   try {
     const theses = await Theses.findAll({
-      attributes: ['id', 'filename', 'title'],
       where: {
+        [Op.or]: [
+          { filename: { [Op.like]: `%${searchQuery}%` } },  // Search by filename
+          { title: { [Op.like]: `%${searchQuery}%` } }      // Search by title
+        ],
         pdfData: {
           [Op.ne]: null,
         },
       },
+      attributes: ['id', 'filename', 'title'],
     });
 
     res.json(theses);
