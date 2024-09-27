@@ -21,6 +21,7 @@ function ToUpload() {
         },
       });
       setMessage('File uploaded successfully!');
+      window.location.reload();
     } catch (error) {
       console.error(error);
       setMessage('Failed to upload file.');
@@ -28,7 +29,7 @@ function ToUpload() {
   };
 
   return (
-    <div>
+    <div className="mainCntr">
       <div className="plusSignCtnr">
         <input
           id="file"

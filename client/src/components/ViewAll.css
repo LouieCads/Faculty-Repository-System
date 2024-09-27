@@ -1,0 +1,49 @@
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.thesisMainC {
+    margin: 8em 5em;
+    margin-bottom: 10%;
+}
+
+.thesisMainC h1 {
+    text-align: center;
+    margin: 1em 0;
+    font-size: 2.5em;
+}
+
+.thesisGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+}
+
+.thesis {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+    line-height: 1.5em;
+}
+
+.thesis .name a {
+    font-weight: bold;
+    color: #01245B;
+    text-decoration: none;
+    transition: color 0.3s ease; 
+
+}
+
+.thesis .name a:hover {
+    text-decoration: underline;
+}
+.thesis:hover{
+    background-color: #01245B;
+    color: #FFD659;
+    border: none;
+}
+.thesis:hover .name a {
+    color: #FFD659;
+}
+
