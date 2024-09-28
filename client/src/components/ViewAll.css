@@ -1,7 +1,10 @@
-*{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+* {
+    font-family: "Montserrat", sans-serif;;
 }
 .thesisMainC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 5em 5em;
     margin-bottom: 10%;
 }
@@ -37,7 +40,7 @@
 .thesis .name a:hover {
     text-decoration: underline;
 }
-.thesis:hover{
+.thesis:hover {
     background-color: #01245B;
     color: #FFD659;
     border: none;
@@ -46,4 +49,12 @@
 .thesis:hover .name a {
     color: #FFD659;
 }
-
+.thesisMainC .searchBar {
+    width: 85%;
+    height: 2.2em;
+    margin-bottom: 2em;
+    font-size: 1.2em;
+    padding: 0 1em;
+    border: 2px solid #ccc;
+    border-radius: 6em;
+}

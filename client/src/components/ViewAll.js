@@ -40,13 +40,14 @@ function View() {
 
   return (
     <div className="thesisMainC">
-       {/* Search bar */}
-       <input
+      {/* Search bar */}
+      <input
+        className="searchBar"
         type="text"
-        placeholder="Search by title or filename"
+        placeholder="Search theses by title or filename"
+        aria-label="Search theses"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)} // Update search query
-        className="searchBar"
       />
       <h1>Thesis List</h1>
       {error && <div className="error">{error}</div>}

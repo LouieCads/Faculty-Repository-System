@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
 import ToUpload from "../components/ToUpload";
 import ViewAll from "../components/ViewAll";
 import "./Home.css";
@@ -18,7 +17,6 @@ function Home() {
             in seconds.
           </p>
         </div>
-        <SearchBar />
         <ToUpload />
         <ViewAll />
       </div>
