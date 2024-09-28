@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Users = sequelize.define("Users", { //create table
+  const Users = sequelize.define("Users", { 
     id: {
       type: DataTypes.STRING,
       primaryKey: true,

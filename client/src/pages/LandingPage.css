@@ -18,13 +18,13 @@ h1 {
   z-index: 1; 
 }
 .LPcontainer p{
-  font-size: 3em;
+  font-size: 2.8em;
   margin-bottom: -0.5em;
   font-weight: 500;
   text-align: center;
 }
 .LPcontainer h1{
-  font-size: 7.5em;
+  font-size: 6.5em;
   font-weight: 800;
 }
 .LPcontainer .LPBtnCtnr button{
@@ -44,6 +44,8 @@ h1 {
   color: #01245B;
   border-radius: 3em;
 }
-
+.brave-herons {  
+  color: #FFD659;
+}
 
 

@@ -11,8 +11,8 @@ const LandingPage = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="text1">
-        <p>Home of the</p>
-        <h1>Great Brave Herons</h1>
+        <p>Home of the Great <span className="brave-herons">Brave Herons</span></p>
+        <h1>Faculty Repository</h1>
       </div>
       <div className="LPBtnCtnr">
         <Link to="/home">

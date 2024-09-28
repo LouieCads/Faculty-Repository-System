@@ -21,13 +21,13 @@ router.post('/', upload.single('file'), async (req, res) => {
     const data = await pdf(buffer);
     const pdfText = data.text;
 
-    const pdfLines = pdfText.split('\n').map(line => line.trim()); // Split and trim lines
-    const limitedLines = pdfLines.slice(0, 4); // Take the first 5 lines
+    const pdfLines = pdfText.split('\n').map(line => line.trim()); 
+    const limitedLines = pdfLines.slice(0, 4); 
     const title = limitedLines.join('\n');
 
     const thesis = await Theses.create({
       filename: req.file.originalname,
-      title: title,  // Save the extracted title in the database
+      title: title,  
       pdfData: req.file.buffer
     });
 
@@ -62,7 +62,7 @@ router.get('/pdfs', async (req, res) => {
   }
 });
 
-// gwet a specific pdf
+// get a specific pdf
 router.get('/download/:filename', async (req, res) => {
   try {
     const thesis = await Theses.findOne({ where: { filename: req.params.filename } });

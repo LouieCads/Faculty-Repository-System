@@ -42,8 +42,7 @@ const header = () => {
               fontWeight: "800",
             }}
           >
-            <p className="text1">University of Makati-</p>
-            <p className="text2">Repository System</p>
+            <p className="text1">University of Makati - <span className="text2">Faculty Repository</span></p>
           </Typography>
           <div className="btnMain">
             <Button color="inherit">Summarize</Button>

@@ -42,6 +42,7 @@
     background-color: #01245B;
     color: #FFD659;
     border: none;
+    cursor: pointer;
 }
 .thesis:hover .name a {
     color: #FFD659;
