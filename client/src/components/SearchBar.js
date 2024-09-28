@@ -8,13 +8,14 @@ const SearchBar = ({ onSearch }) => {
 
   const debouncedSearch = useCallback(
     debounce(async (query) => {
+      if (!query) return;  // Don't trigger empty searches
       try {
-        const response = await axios.get(`http://localhost:3308/Theses/pdfs?q=${query}`);
+        const response = await axios.get(`http://localhost:3308/Theses/pdfs?query=${query}`);
         console.log('Thesis response data:', response.data);
-        onSearch(response.data);
+        onSearch(response.data);  
       } catch (error) {
-        console.error('Error fetching theses:', error);
-        setError('Failed to load theses.');
+        console.error('Error fetching theses:', error.response || error.message);
+        // setError('Failed to load theses.');
       }
     }, 300),
     [onSearch]

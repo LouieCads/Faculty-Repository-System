@@ -41,6 +41,7 @@ router.post('/', upload.single('file'), async (req, res) => {
 // getting all pdfs
 router.get('/pdfs', async (req, res) => {
   const searchQuery = req.query.q || '';
+  console.log('Received search query:', searchQuery);  // Log the search query
   try {
     const theses = await Theses.findAll({
       where: {
@@ -48,19 +49,22 @@ router.get('/pdfs', async (req, res) => {
           { filename: { [Op.like]: `%${searchQuery}%` } },
           { title: { [Op.like]: `%${searchQuery}%` } }
         ],
-        pdfData: {
-          [Op.ne]: null,
-        },
+        pdfData: { [Op.ne]: null },
       },
       attributes: ['id', 'filename', 'title'],
     });
 
+    if (!theses || theses.length === 0) {
+      return res.status(404).json({ error: 'No theses found' });
+    }
+
     res.json(theses);
   } catch (error) {
-    console.error('Error fetching theses with PDFs', error);
-    res.status(500).json({ error: 'Failed to fetch theses with PDFs' });
+    console.error('Error fetching theses with PDFs:', error.message);
+    res.status(500).json({ error: 'Failed to fetch theses' });
   }
 });
+
 
 // get a specific pdf
 router.get('/download/:filename', async (req, res) => {

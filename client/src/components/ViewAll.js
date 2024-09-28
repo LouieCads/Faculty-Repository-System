@@ -1,13 +1,12 @@
-import React from 'react';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import "./ViewAll.css";
-
+import './ViewAll.css';
 
 function View() {
   const [listOfTheses, setListOfTheses] = useState([]);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState(''); // State for search query
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -24,28 +23,38 @@ function View() {
       .catch((error) => {
         console.error('Error fetching theses:', error);
         if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
           setError(`Server error: ${error.response.status} ${error.response.statusText}`);
-          console.error('Error response:', error.response);
         } else if (error.request) {
-          // The request was made but no response was received
           setError('No response received from server. Check if the server is running.');
-          console.error('No response received:', error.request);
         } else {
-          // Something happened in setting up the request that triggered an Error
           setError(`Error: ${error.message}`);
         }
       });
   }, []);
 
+  // Filter theses based on the search query
+  const filteredTheses = listOfTheses.filter((thesis) =>
+    thesis.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    thesis.filename.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="thesisMainC">
+       {/* Search bar */}
+       <input
+        type="text"
+        placeholder="Search by title or filename"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)} // Update search query
+        className="searchBar"
+      />
       <h1>Thesis List</h1>
       {error && <div className="error">{error}</div>}
       {listOfTheses.length === 0 && !error && <div>Loading theses...</div>}
+
       <div className="thesisGrid">
-        {listOfTheses.map((value, key) => {
+        {filteredTheses.length === 0 && <div>No theses found.</div>}
+        {filteredTheses.map((value, key) => {
           return (
             <div className="thesis" key={key}>
               <div className="name">
