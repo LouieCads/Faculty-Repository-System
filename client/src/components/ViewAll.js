@@ -54,7 +54,7 @@ function View() {
       {listOfTheses.length === 0 && !error && <div>Loading theses...</div>}
 
       <div className="thesisGrid">
-        {filteredTheses.length === 0 && <div>No theses found.</div>}
+        {filteredTheses.length === 0 && <div>No theses found );</div>}
         {filteredTheses.map((value, key) => {
           return (
             <div className="thesis" key={key}>
