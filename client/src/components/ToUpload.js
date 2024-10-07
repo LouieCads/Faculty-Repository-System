@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import upload from "../images/upload.png";
-import "./ToUpload.css";
+import "../css/ToUpload.css";
 
 function ToUpload() {
   const [message, setMessage] = useState("");

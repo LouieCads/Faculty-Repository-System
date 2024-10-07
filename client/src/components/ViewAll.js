@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './ViewAll.css';
+import '../css/ViewAll.css';
 
 function View() {
   const [listOfTheses, setListOfTheses] = useState([]);

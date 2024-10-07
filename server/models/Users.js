@@ -13,21 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    college: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   });
 
-  // Users.associate = (models) => {
-  //   Users.hasMany(models.Theses, {
-  //     onDelete: "cascade",
-  //   });
-  // };
+  Users.associate = (models) => {
+    Users.hasMany(models.Theses, {
+      onDelete: "cascade",
+    });
+  };
 
   return Users;
 };

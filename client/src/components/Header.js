@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import umakLogo from "../images/umakLogo.png";
-import "./header.css"
+import "../css/header.css"
 
 const header = () => {
   const home = "HOME";

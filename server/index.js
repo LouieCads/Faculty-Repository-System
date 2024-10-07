@@ -12,8 +12,7 @@ const db = require('./models');
 app.use(express.urlencoded({ extended: true }));
 
 const usersRouter = require('./routes/Users');
-app.use("/users", usersRouter);
-
+app.use("/auth", usersRouter);
 const thesesRouter = require('./routes/Theses');
 app.use("/theses", thesesRouter);
 

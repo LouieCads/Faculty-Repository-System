@@ -1,6 +1,3 @@
-*{
-    font-family: "Montserrat", sans-serif;;
-}
 .LPcontainer {
   position: relative;
   width: 100%;
@@ -26,6 +23,10 @@ h1 {
 .LPcontainer h1{
   font-size: 6.5em;
   font-weight: 800;
+}
+.LPBtnCtnr {
+  display: flex;
+  gap: 5em;
 }
 .LPcontainer .LPBtnCtnr button{
   margin-top: 8em;

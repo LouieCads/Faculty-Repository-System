@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import ToUpload from "../components/ToUpload";
 import ViewAll from "../components/ViewAll";
-import "./Home.css";
+import "../css/Home.css";
 
 function Home() {
   return (
