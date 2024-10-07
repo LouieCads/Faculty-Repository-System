@@ -25,16 +25,10 @@ router.get("/", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const { id, username, email, password } = req.body
+    const { id, password } = req.body
     
     // Check if inputted id is the same in the db
-    const user = await Users.findOne({ 
-      where: {
-        [Op.or]: [
-          { id: id }, { username: username }, { email: email } // if inputted id/username/email are the same as in the db
-        ]
-      } 
-    });
+    const user = await Users.findOne({ where: { id: id } });
 
     // Check if password is registered. Comparing hash to a input
     await bcrypt.compare(password, user.password).then((match) => {

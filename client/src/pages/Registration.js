@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useNavigate, Link } from 'react-router-dom'; 
 
 import '../css/Registration.css';
 import umakLogo from '../images/umakLogo.png';
 
-function Registration() {
-  const { credentials, setCredentials } = useState([]); 
+function Registration() { 
+  let navigate = useNavigate();
 
   const initialValues = {
     id: "",
@@ -31,10 +32,11 @@ function Registration() {
       .matches(/[!@#$%^&*(),.?":{}|<>]/, '! Password must contain at least one special character') // Special character
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, { resetForm }) => { // resetForm to reset the form after submission
     try {
       axios.post("http://localhost:3308/auth", data).then((response) => {
-        console.log('Success!');
+        resetForm();
+        navigate('/registrationSuccess');    
       });
     } catch(error) {
       console.error("Error Registering: ", error);
@@ -45,7 +47,7 @@ function Registration() {
     <div className='registration-container'>
       <div className='registration-modal'>
         <div className='logo'>
-          <div className='image'><img src={umakLogo}/></div>
+          <div className='image'><Link to='/'><img src={umakLogo}/></Link></div>
           <div className='text'><p>Create an Account</p></div>
         </div>
         <div className='registration'>

@@ -1,0 +1,61 @@
+.bi-check-circle {
+  color: #28a745;
+}
+
+.messageContainer {
+  width: 100%;
+  height: 100vh; 
+  background-size: cover; 
+  background-position: center;
+  width: 100vw;
+  background-image: url('../images/umakBG.png');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageModal {
+  height: 350px;
+  width: 30rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 21, 0.15);
+  border-radius: 16px;
+  gap: 2rem;
+}
+.half1, .half2 {
+  height: 100%;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.half1 {
+  background-color: #f2ec26;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}
+
+.check-icon {
+  margin-top: 1.5rem;
+}
+.caption {
+  margin-bottom: 1.5rem;
+}
+.caption p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #28a745;
+}
+.message {
+  margin: 0rem 2rem;
+  text-align: center;
+}
+.login-nav {
+  text-decoration: underline;
+}
