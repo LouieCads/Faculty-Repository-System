@@ -18,10 +18,16 @@ function ToUpload() {
       const response = await axios.post('http://localhost:3308/Theses', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          accessToken: sessionStorage.getItem("accessToken")
         },
+      }).then((response) => {
+        if(response.data.error) {
+          alert(response.data.error);
+        } else {
+          setMessage('File uploaded successfully!');
+          window.location.reload();
+        }
       });
-      setMessage('File uploaded successfully!');
-      window.location.reload();
     } catch (error) {
       console.error(error);
       setMessage('Failed to upload file.');

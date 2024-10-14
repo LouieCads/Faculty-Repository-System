@@ -4,12 +4,13 @@ const { Theses } = require('../models');
 const { Op } = require('sequelize');
 const router = express.Router();
 const pdf = require('pdf-parse');
+const { validateToken }  = require('../middlewares/AuthMiddleware');
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 // uploading pdfs
-router.post('/', upload.single('file'), async (req, res) => {
+router.post('/', validateToken, upload.single('file'), async (req, res) => {
   try {
 
     if (!req.file) {

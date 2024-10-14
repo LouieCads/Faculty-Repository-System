@@ -16,11 +16,24 @@ function Login() {
   const login = () => {
     const data = {id: id, password: password};
     axios.post("http://localhost:3308/auth/login", data).then((response) => {
-      console.log(response.data);
-      navigate('/home');
+      if(response.data.success) {
+        sessionStorage.setItem("accessToken", response.data.accessToken);
+        console.log("Token stored:", response.data.accessToken); // For debugging
+        navigate('/home');
+      } else {
+        alert(response.data.error || 'Login failed');
+      }
     }).catch((error) => {
-      if(error.response) alert(error);  // Server responded with a status code outside the range of 2xx
-      if(error.request) alert('Error: No response from the server. Please try again later.'); // Request was made but no response was received
+      if(error.response) { 
+        alert(error); // Server responded with a status code outside the range of 2xx
+      }  
+      else if(error.request) { 
+        alert('Error: No response from the server. Please try again later.'); // Request was made but no response was received
+      } 
+      else { 
+        alert('Error: ' + error.message); 
+      }
+      console.error('Login error:', error);
     });
   };
 
