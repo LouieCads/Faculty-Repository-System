@@ -1,19 +1,19 @@
-const { verify } = require('jsonwebtoken');
+const { verify } = require("jsonwebtoken");
 
 const validateToken = (req, res, next) => {
-  const accessToken = req.header("accessToken");  // Extract the accessToken from the request headers
+  const accessToken = req.header("accessToken"); // Extract the accessToken from the request headers
 
-  if(!accessToken) return res.json({ error: 'User not logged in' });
+  if (!accessToken) return res.json({ error: "User not logged in" });
 
-  try  {
+  try {
     const validToken = verify(accessToken, "importantSecret"); // validToken will contain the decoded token payload
     // The accessToken is like a special lock that contains information
-    // "importantSecret" is the key that can open this lock and rel the informationvea
+    // "importantSecret" is the key that can open this lock and rel the information
 
-    if(validToken) {
+    if (validToken) {
       return next(); // If the token is valid, call the next middleware or route handler
     }
-  } catch(error) {
+  } catch (error) {
     return res.json({ error: error });
   }
 };

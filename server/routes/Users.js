@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { Users } = require('../models');
+const { Users } = require("../models");
 const bcrypt = require("bcrypt");
-const { Op } = require('sequelize');
+const { Op } = require("sequelize");
 
-const { sign } = require('jsonwebtoken');
+const { sign } = require("jsonwebtoken");
 
 // input to db
 router.post("/", async (req, res) => {
@@ -22,29 +22,29 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  Users.findAll();
+  const users = await Users.findAll();
+  res.json(users);
 });
 
 router.post("/login", async (req, res) => {
-    const { id, password } = req.body
-    
-    // Check if inputted id is the same in the db
-    const user = await Users.findOne({ where: { id: id }});
+  const { id, password } = req.body;
 
-    if (!user) return res.status(404).json({ error: "User doesn't exist" });
+  const user = await Users.findOne({ where: { id: id } }); // Check if inputted id is the same in the db
 
-    // Check if password is registered. Comparing hash to a input
-    await bcrypt.compare(password, user.password).then((match) => {
-      if(!match) return res.status(401).json({ error: "Wrong ID/Password" });
+  if (!user) return res.status(404).json({ error: "User doesn't exist" });
 
-      // Generate the JWT 
-      const accessToken = sign(
-        { username: user.username, id: user.id }, 
-        "importantSecret",
-        { expiresIn: '2h' }
-      );
+  // Check if password is registered. Comparing hash to a input
+  await bcrypt.compare(password, user.password).then((match) => {
+    if (!match) return res.status(401).json({ error: "Wrong ID/Password" });
 
-      res.json({ accessToken, success: true }); // Sends a success: true flag with the access token for successful logins.
-    });
+    // Generate the JWT
+    const accessToken = sign(
+      { username: user.username, id: user.id },
+      "importantSecret",
+      { expiresIn: "2h" }
+    );
+
+    res.json({ accessToken, success: true }); // Sends a success: true flag with the access token for successful logins.
+  });
 });
-module.exports = router; 
+module.exports = router;
